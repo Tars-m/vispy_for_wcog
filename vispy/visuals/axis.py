@@ -325,7 +325,6 @@ class Ticker(object):
         doc_unit = visual_to_document.map([[0, 0], direction[:2]])
         doc_unit = doc_unit[1] - doc_unit[0]
         doc_len = np.linalg.norm(doc_unit)
-        doc_len = 400
 
         vectors = np.array([[0., 0.],
                             direction * self.axis.minor_tick_length / doc_len,
@@ -391,8 +390,8 @@ class Ticker(object):
             major = _get_ticks_talbot(domain[0], domain[1], n_inches, 2)
             major = np.append(major,domain[1])
             labels = ['%g' % x for x in major]
-            if domain[1] - major[-1] < 500:
-                labels[-2] = ""
+            for l in range(1, len(labels) - 1, 1):
+                labels[l] = ""
 
             majstep = major[1] - major[0]
             minor = []
