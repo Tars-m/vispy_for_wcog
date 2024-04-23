@@ -325,6 +325,7 @@ class Ticker(object):
         doc_unit = visual_to_document.map([[0, 0], direction[:2]])
         doc_unit = doc_unit[1] - doc_unit[0]
         doc_len = np.linalg.norm(doc_unit)
+        doc_len = 400
 
         vectors = np.array([[0., 0.],
                             direction * self.axis.minor_tick_length / doc_len,
